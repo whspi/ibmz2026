@@ -18,6 +18,6 @@ flagged = flagged.drop_duplicates(subset=['body']) # drop duplicates
 flagged['body'] = flagged['body'].str.strip() # remove unecessary whitespace 
 flagged = flagged.dropna() # remove empty cells
 
-flagged.to_json()
-
+flagged["body"].to_json("text.json", orient="values")
+flagged["label"].to_json("label.json", orient="values")
 
