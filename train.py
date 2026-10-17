@@ -9,7 +9,7 @@ from transformers import (
 
 print("Loading base model...");
 
-device = torch.device("xpu");
+device = torch.device("cpu");
 tokenizer = cast(DistilBertTokenizerFast, DistilBertTokenizerFast.from_pretrained("./local/base-model"));
 model = cast(DistilBertForSequenceClassification, DistilBertForSequenceClassification.from_pretrained("./local/base-model"));
 model.to(device);

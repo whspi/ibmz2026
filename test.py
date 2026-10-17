@@ -4,7 +4,7 @@ from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassific
 
 print("Loading model...");
 
-device = torch.device("xpu");
+device = torch.device("cpu");
 tokenizer = cast(DistilBertTokenizerFast, DistilBertTokenizerFast.from_pretrained("./local/model"));
 model = cast(DistilBertForSequenceClassification, DistilBertForSequenceClassification.from_pretrained("./local/model"));
 model.to(device);
