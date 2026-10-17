@@ -17,11 +17,8 @@ flagged['body'] = flagged['body'].str.lower() # normalise the text
 flagged = flagged.drop_duplicates(subset=['body']) # drop duplicates 
 flagged['body'] = flagged['body'].str.strip() # remove unecessary whitespace 
 flagged = flagged.dropna() # remove empty cells
+flagged['body'] = flagged['body'].str.replace('\ufffd', '', regex=False) # removed unicode unidentified chars
 
-flagged.head(20)
-
-
-
-# flagged["body"].to_json("text.json", orient="values")
-# flagged["label"].to_json("label.json", orient="values")
+flagged["body"].to_json("text.json", orient="values")
+flagged["label"].to_json("label.json", orient="values")
 
